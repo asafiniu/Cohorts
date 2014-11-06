@@ -1,0 +1,31 @@
+%h1 Cohorts
+%table
+  %tbody
+    %tr{:id => "headers"}
+      %th Cohorts
+      %th Users
+      - (0..(@largest_num_of_days/7)*7).step(7) do |k|
+        %th= "%d - %d days" % [k, k+6]
+    - @cohorts.keys.sort.each do |key|
+      - data = @cohorts[key]
+      - if data["users"] > 0
+        %tr
+          %td= key
+          %td= "%s Users" % data["users"]
+          - (0..(@largest_num_of_days/7)*7).step(7) do |k|
+            - col = "%d - %d days" % [k, k+6]
+            - if data.keys.include?(col)
+              - users = data["users"]
+              %td
+                - orderers_pct = (data[col]["orderers"] * 100) / users
+                - first_timers_pct = (data[col]["first_timers"] * 100) / users
+                - if orderers_pct > 75
+                  %strong= "%s%% orderers (%s)" % [orderers_pct, data[col]["orderers"]]
+                - else
+                  %div= "%s%% orderers (%s)" % [orderers_pct, data[col]["orderers"]]
+                - if first_timers_pct > 75
+                  %strong= "%s%% 1st time (%s)" % [first_timers_pct, data[col]["first_timers"]]
+                - else
+                  %div= "%s%% 1st time (%s)" % [first_timers_pct, data[col]["first_timers"]]
+            - else
+              %td= ""

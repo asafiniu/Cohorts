@@ -13,3 +13,21 @@
  *= require_tree .
  *= require_self
  */
+body,body table tr td{font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif}
+table{
+width:100%;
+border:2px solid #000
+}
+table tr#headers{
+background-color:#fff!important;
+font-weight:bold
+}
+table th, table td{
+border:1px solid #bebebe;
+padding:5px;
+text-align:center
+}
+table td strong{display:block}
+table tr:nth-child(odd) {
+background-color:#ddd
+}

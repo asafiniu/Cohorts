@@ -1,0 +1,10 @@
+%h1 Orders
+%table
+  %tbody
+    %tr{:id => "headers"}
+    - @orders.each do |o|
+      %tr{:id => o.id, "ordernum" => o.order_num}
+        %td{:class => 'ordernum'}= o.order_num
+        %td{:class => 'oid', :style => 'display:none'}= o.id
+        %td{:class => 'user'}= o.user.id
+        %td{:class => 'created_at'}= o.created_at
