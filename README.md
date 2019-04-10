@@ -1,6 +1,9 @@
 Cohorts
 ================
+Group users into week long cohorts based on the user's signup date.
 
+How?
+================
 This application was generated with the [rails_apps_composer](https://github.com/RailsApps/rails_apps_composer) gem
 provided by the [RailsApps Project](http://railsapps.github.io/).
 
